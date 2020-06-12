@@ -7,14 +7,13 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/json', async (ctx, next) => {
-  console.log(JSON.stringify(ctx.session));
   if (ctx.session.viewNum == null) {
     ctx.session.viewNum = 0;
   }
   ctx.session.viewNum++;
   ctx.body = {
     title: 'koa2 json',
-    viewNum: ctx.session.viewNum
+    // viewNum: ctx.session.viewNum
   };
 });
 
