@@ -9,12 +9,21 @@ const session = require('koa-generic-session');
 const redisStore = require('koa-redis');
 
 const { REDIS_CONF } = require('./config/db');
+const { isProd } = require('./utils/env');
+
+// 路由
 const index = require('./routes/index')
 const users = require('./routes/users')
+const errorViewRouter = require('./routes/view/error');
 
 // error handler
-onerror(app)
-
+let onerrorConf = {};
+if (isProd) {
+  onerrorConf = {
+    redirect: '/error'
+  }
+}
+onerror(app, onerrorConf)
 // middlewares
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -56,6 +65,7 @@ app.use(session({
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()) // 404路由注册到最后面
 
 // error-handling
 app.on('error', (err, ctx) => {
