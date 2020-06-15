@@ -14,9 +14,9 @@ redisClient.on('error', err => {
 
 /**
  * redis set
- * @param {string} key 键
- * @param {string} val 值
- * @param {number} timeout 过期时间，单位秒
+ * @param {String} key 键
+ * @param {String} val 值
+ * @param {Number} timeout 过期时间，单位秒
  */
 function set(key, val, timeout = 60 * 60) {
     if (typeof val === 'object') {
@@ -28,7 +28,7 @@ function set(key, val, timeout = 60 * 60) {
 
 /**
  * redis get
- * @param {string} key 键
+ * @param {String} key 键
  * @returns {Promise} promise
  */
 function get(key) {
