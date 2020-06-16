@@ -50,8 +50,8 @@ app.use(session({
   },
   // ttl: 24 * 60 * 60 * 1000, // redis过期时间，默认和cookie过期时间一致
   store: redisStore({
-    host: REDIS_CONF.host,
-    port: REDIS_CONF.port,
+    host: REDIS_CONF && REDIS_CONF.host,
+    port: REDIS_CONF && REDIS_CONF.port,
   })
 }))
 

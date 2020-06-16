@@ -20,7 +20,6 @@ function getLoginInfo(ctx) {
             userName: userInfo.userName
         }
     }
-    console.log(ctx.session.destroy);
     return data;
 }
 

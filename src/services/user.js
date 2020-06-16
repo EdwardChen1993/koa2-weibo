@@ -5,6 +5,7 @@
 
 const { User } = require('../db/model');
 const { formatUser } = require('./_format');
+const { SuccessModel, ErrorModel } = require('../model/ResModel');
 
 /**
  * 获取用户信息
@@ -51,4 +52,18 @@ async function createUser({ userName, password, gender = 3, nickName }) {
     return result.dataValues;
 }
 
-module.exports = { getUserInfo, createUser }
+/**
+ * 删除用户
+ * @param {String} userName 用户名
+ */
+async function deleteUser(userName) {
+    const result = await User.destroy({
+        where: {
+            userName
+        }
+    })
+    // result删除的行数
+    return result > 0;
+}
+
+module.exports = { getUserInfo, createUser, deleteUser }

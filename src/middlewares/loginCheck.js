@@ -8,8 +8,8 @@ const { loginCheckFailInfo } = require("../model/ErrorInfo");
 
 /**
  * api登录验证
- * @param {Object} ctx ko2 ctx
- * @param {Function} next ko2 next
+ * @param {Object} ctx koa2 ctx
+ * @param {Function} next koa2 next
  */
 async function loginCheck(ctx, next) {
     if (ctx.session && ctx.session.userInfo) {
@@ -23,8 +23,8 @@ async function loginCheck(ctx, next) {
 
 /**
  * 页面登录验证
- * @param {Object} ctx ko2 ctx
- * @param {Function} next ko2 next
+ * @param {Object} ctx koa2 ctx
+ * @param {Function} next koa2 next
  */
 async function loginRedirect(ctx, next) {
     if (ctx.session && ctx.session.userInfo) {
