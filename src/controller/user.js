@@ -16,7 +16,8 @@ const {
     registerFailInfo,
     loginFailInfo,
     deleteUserFailInfo,
-    changeInfoFailInfo
+    changeInfoFailInfo,
+    changePasswordFailInfo
 } = require('../model/ErrorInfo');
 const doCrypto = require('../utils/cryp');
 
@@ -116,7 +117,39 @@ async function changInfo(ctx, { nickName, city, picture }) {
         Object.assign(ctx.session.userInfo, { nickName, city, picture });
         return new SuccessModel();
     }
-   return new ErrorModel(changeInfoFailInfo);
+    return new ErrorModel(changeInfoFailInfo);
+}
+
+/**
+ * 修改密码
+ * @param {String} userName 用户名
+ * @param {String} password 旧密码
+ * @param {String} newPassword 新密码
+ */
+async function changePassword(userName, password, newPassword) {
+    const result = await updateUser(
+        {
+            newPassword: doCrypto(newPassword),
+
+        },
+        {
+            userName,
+            password: doCrypto(password)
+        }
+    );
+    if (result) {
+        return new SuccessModel();
+    }
+    return new ErrorModel(changePasswordFailInfo);
+}
+
+/**
+ * 退出登录
+ * @param {Object} ctx koa2 ctx
+ */
+async function logout(ctx) {
+    delete ctx.session.userInfo;
+    return new SuccessModel();
 }
 
 module.exports = {
@@ -124,5 +157,7 @@ module.exports = {
     register,
     login,
     deleteCurUser,
-    changInfo
+    changInfo,
+    changePassword,
+    logout
 }
