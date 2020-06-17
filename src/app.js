@@ -15,10 +15,11 @@ const { isProd } = require('./utils/env');
 const { SESSION_SECRET_KEY } = require('./conf/secretKeys');
 
 // 路由
+const homeAPIRouter = require('./routes/api/blog-home')
 const blogViewRouter = require('./routes/view/blog')
 const userViewRouter = require('./routes/view/user');
-const userApiRouter = require('./routes/api/user');
-const utilsApiRouter = require('./routes/api/utils');
+const userAPIRouter = require('./routes/api/user');
+const utilsAPIRouter = require('./routes/api/utils');
 const errorViewRouter = require('./routes/view/error');
 
 // error handler
@@ -68,9 +69,10 @@ app.use(session({
 }) */
 
 // routes
+app.use(homeAPIRouter.routes(), homeAPIRouter.allowedMethods())
 app.use(blogViewRouter.routes(), blogViewRouter.allowedMethods())
-app.use(userApiRouter.routes(), userApiRouter.allowedMethods())
-app.use(utilsApiRouter.routes(), utilsApiRouter.allowedMethods())
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
+app.use(utilsAPIRouter.routes(), utilsAPIRouter.allowedMethods())
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods()) // 404路由注册到最后面
 
