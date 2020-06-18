@@ -4,7 +4,7 @@
  */
 
 const { Blog, User } = require('../db/model');
-const { formatUser } = require('./_format');
+const { formatUser, formatBlog } = require('./_format');
 
 /**
  * 创建微博
@@ -46,7 +46,9 @@ async function getBlogListByUser({ userName, pageIndex = 0, pageSize = 10 }) {
     })
     // result.count=总数，跟分页无关
     let blogList = result.rows.map(row => row.dataValues);
-
+    
+    // 格式化
+    blogList = formatBlog(blogList);
     blogList = blogList.map(blogItem => {
         const user = blogItem.user.dataValues;
         blogItem.user = formatUser(user);
