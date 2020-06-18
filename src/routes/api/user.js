@@ -16,7 +16,7 @@ const {
 const uesrValidate = require('../../validator/user');
 const { genValidator } = require('../../middlewares/validator');
 const { isTest } = require('../../utils/env');
-const { loginCheck } = require('../../middlewares/loginCheck');
+const { loginCheck } = require('../../middlewares/loginChecks');
 
 router.prefix('/api/user');
 

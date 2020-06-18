@@ -130,7 +130,6 @@ async function changePassword(userName, password, newPassword) {
     const result = await updateUser(
         {
             newPassword: doCrypto(newPassword),
-
         },
         {
             userName,
