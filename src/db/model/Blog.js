@@ -1,6 +1,5 @@
 /**
  * @description 微博数据模型
- * @author 泽华
  */
 
 const seq = require('../seq');

@@ -1,6 +1,5 @@
 /**
  * @description 用户关系单元测试
- * @author 泽华
  */
 
 const server = require('../server');

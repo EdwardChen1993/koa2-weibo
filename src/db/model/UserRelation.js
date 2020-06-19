@@ -1,6 +1,5 @@
 /**
  * @description 用户关注关系
- * @author 泽华
  */
 
 const seq = require('../seq');

@@ -1,6 +1,5 @@
 /**
  * @description user view路由
- * @author 泽华
  */
 
 const router = require('koa-router')();

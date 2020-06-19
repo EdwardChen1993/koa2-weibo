@@ -1,6 +1,5 @@
 /**
  * @description json schema验证中间件
- * @author 泽华
  */
 
 const { ErrorModel } = require('../model/ResModel');

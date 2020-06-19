@@ -1,6 +1,5 @@
 /**
  * @description 个人主页 test
- * @author 泽华
  */
 
 const server = require('../server');

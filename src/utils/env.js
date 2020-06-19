@@ -1,6 +1,5 @@
 /**
  * @description 环境变量
- * @author 泽华
  */
 
 const ENV = process.env.NODE_ENV;

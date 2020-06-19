@@ -1,6 +1,5 @@
 /**
  * @description 加密方法
- * @author 泽华
  */
 
 const crypto = require('crypto');

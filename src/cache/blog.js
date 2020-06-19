@@ -1,6 +1,5 @@
 /**
  * @description 微博缓存层
- * @author 泽华
  */
 
 const { get, set } = require('./_redis');

@@ -1,6 +1,5 @@
 /**
  * @description 基于 jquery 封装 ajax
- * @author 泽华
  */
 
 (function(window, $) {

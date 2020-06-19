@@ -1,10 +1,10 @@
 /**
  * @description 用户关系 services
- * @author 泽华
  */
 
 const { User, UserRelation } = require('../db/model');
 const { formatUser } = require('./_format');
+const Sequelize = require('sequelize')
 
 /**
  * 获取关注该用户的用户列表，即该用户的粉丝
@@ -18,7 +18,10 @@ async function getUsersByFollower(followerId) {
             {
                 model: UserRelation,
                 where: {
-                    followerId: followerId
+                    followerId,
+                    userId: {
+                        [Sequelize.Op.ne]: followerId   // Sequelize.Op.ne不等于
+                    }
                 }
             }
         ]
@@ -48,7 +51,10 @@ async function getFollowerSByUser(userId) {
             }
         ],
         where: {
-            userId
+            userId,
+            followerId: {
+                [Sequelize.Op.ne]: userId   // Sequelize.Op.ne不等于
+            }
         }
     })
     // result.count 总数

@@ -1,6 +1,5 @@
 /**
  * @description utils controller
- * @author 泽华
  */
 
 const path = require('path');

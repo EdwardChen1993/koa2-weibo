@@ -1,6 +1,5 @@
 /**
  * @description 首页controller
- * @author 泽华
  */
 
 const { createBlog } = require("../services/blog");

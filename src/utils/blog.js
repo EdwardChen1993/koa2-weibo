@@ -1,6 +1,5 @@
 /**
  * @description 微博 数据相关的工具方法
- * @author 泽华
  */
 
 const fs = require('fs');

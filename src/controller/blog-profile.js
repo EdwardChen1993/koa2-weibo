@@ -1,6 +1,5 @@
 /**
  * @description 个人主页controller
- * @author 泽华
  */
 
 const { getBlogListByUser } = require("../services/blog");

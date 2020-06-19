@@ -1,6 +1,5 @@
 /**
  * @description 常量集合
- * @author 泽华
  */
 
  module.exports = {

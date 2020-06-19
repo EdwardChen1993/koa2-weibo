@@ -1,6 +1,5 @@
 /**
  * @description 广场 test
- * @author 泽华
  */
 
 const server = require('../server')

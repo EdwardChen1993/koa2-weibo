@@ -1,6 +1,5 @@
 /**
  * @description json schema校验
- * @author 泽华
  */
 
 const Ajv = require('ajv');

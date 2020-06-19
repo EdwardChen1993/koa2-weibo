@@ -4,7 +4,7 @@
  * Licensed under the WTFPL (http://sam.zoy.org/wtfpl/).
  * Date: 2009/8/13
  *
- * @author Blair Mitchelmore
+ *  Blair Mitchelmore
  * @version 2.2.3
  *
  **/

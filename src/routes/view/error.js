@@ -1,6 +1,5 @@
 /**
  * @description error 404 路由
- * @author 泽华
  */
 
 const router = require('koa-router')();

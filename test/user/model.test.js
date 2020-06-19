@@ -1,6 +1,5 @@
 /**
  * @description user model test
- * @author 泽华
  */
 
 const { User } = require('../../src/db/model/index');

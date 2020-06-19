@@ -1,6 +1,5 @@
 /**
  * @description 用户关系 controller
- * @author 泽华
  */
 
 const { getUsersByFollower,getFollowerSByUser, addFollower, deleteFollower } = require('../services/user-relation');

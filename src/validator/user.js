@@ -1,6 +1,5 @@
 /**
  * @description user 数据格式校验
- * @author 泽华
  */
 
 const validate = require('./_validate')

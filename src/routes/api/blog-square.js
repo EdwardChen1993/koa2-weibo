@@ -1,6 +1,5 @@
 /**
  * @description 广场 API 路由
- * @author 泽华
  */
 
 const router = require('koa-router')()

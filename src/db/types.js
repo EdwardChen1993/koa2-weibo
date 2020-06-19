@@ -1,6 +1,5 @@
 /**
  * @description 封装sequelize数据类型
- * @author 泽华
  */
 
 const Sequelize = require('sequelize');

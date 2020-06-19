@@ -1,6 +1,5 @@
 /**
  * @description 微博 service
- * @author 泽华
  */
 
 const { Blog, User } = require('../db/model');

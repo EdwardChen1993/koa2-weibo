@@ -1,6 +1,5 @@
 /**
  * @description 连接redis的方法 get set
- * @author 泽华
  */
 
 const redis = require('redis');

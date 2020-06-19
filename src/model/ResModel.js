@@ -1,6 +1,5 @@
 /**
  * @description res的数据模型
- * @author 泽华
  */
 
 /**

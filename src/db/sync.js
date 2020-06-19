@@ -1,6 +1,5 @@
 /**
  * @description sequelize 同步数据库
- * @author 泽华
  */
 
 const seq = require('./seq');

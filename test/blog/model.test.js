@@ -1,6 +1,5 @@
 /**
  * @description blog model test
- * @author 泽华
  */
 
 const { Blog } = require('../../src/db/model/index');

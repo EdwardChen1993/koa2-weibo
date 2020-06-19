@@ -1,6 +1,5 @@
 /**
  * @description 数据模型入口文件
- * @author 泽华
  */
 
 const User = require('./User');
@@ -14,8 +13,14 @@ Blog.belongsTo(User, {
 UserRelation.belongsTo(User, {
     foreignKey: 'followerId'
 })
+
 User.hasMany(UserRelation, {
     foreignKey: 'userId'
+})
+
+Blog.belongsTo(UserRelation, {
+    foreignKey: 'userId',
+    targetKey: 'followerId' // 当外键不是指定从表的id时，需要指定targetKey
 })
 
 module.exports = { User, Blog, UserRelation };

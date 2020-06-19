@@ -1,6 +1,5 @@
 /**
  * @description user controller
- * @author 泽华
  */
 
 const {
