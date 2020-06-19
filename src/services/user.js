@@ -96,7 +96,6 @@ async function updateUser(
     const whereData = {
         userName
     }
-    console.log(whereData);
     if (password) {
         whereData.password = password;
     }

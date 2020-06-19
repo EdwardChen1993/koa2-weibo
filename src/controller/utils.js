@@ -26,7 +26,6 @@ fse.pathExists(DIST_FOLDER_PATH).then(exist => {
  * @param {String} filePath 文件路径
  */
 async function saveFile({ name, type, size, filePath }) {
-    console.log(name);
     // 上传文件体积过大
     if (size > MAX_SIZE) {
         // 删除临时文件

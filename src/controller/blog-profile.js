@@ -9,7 +9,7 @@ const { SuccessModel } = require("../model/ResModel");
 /**
  * 获取个人主页微博列表
  * @param {String} userName 用户名
- * @param {Number} pageIndex 当前页面
+ * @param {Number} pageIndex 当前页码
  */
 async function getProfileBlogList(userName, pageIndex = 0) {
     const result = await getBlogListByUser({ userName, pageIndex, pageSize: PAGE_SIZE })
