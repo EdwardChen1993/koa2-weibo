@@ -6,8 +6,9 @@
 const router = require('koa-router')();
 const { loginRedirect } = require('../../middlewares/loginChecks');
 const { getProfileBlogList } = require('../../controller/blog-profile');
-const { getSquareBlogList } = require('../../controller/blog-square')
-const { isExist } = require('../../controller/user')
+const { getSquareBlogList } = require('../../controller/blog-square');
+const { getFans } = require('../../controller/user-relation');
+const { isExist } = require('../../controller/user');
 
 // 首页
 router.get('/', loginRedirect, async (ctx, next) => {
@@ -24,7 +25,7 @@ router.get('/profile/:userName', loginRedirect, async (ctx, next) => {
     // 已登录用户的信息
     const myUserInfo = ctx.session.userInfo
     const myUserName = myUserInfo.userName
-    
+
     let curUserInfo;
     const { userName: curUserName } = ctx.params;
     const isMe = myUserName === curUserName
@@ -44,11 +45,24 @@ router.get('/profile/:userName', loginRedirect, async (ctx, next) => {
     // 获取微博第一页数据
     const result = await getProfileBlogList(curUserName, 0);
     const { isEmpty, blogList, pageSize, pageIndex, count } = result.data;
+
+    // 获取粉丝
+    const fansResult = await getFans(curUserInfo.id);
+    const { fansCount, fansList } = fansResult.data;
+
     await ctx.render('profile', {
         blogData: { isEmpty, blogList, pageSize, pageIndex, count },
         userData: {
             userInfo: curUserInfo,
             isMe,
+            followersData: {
+                count: 0,
+                list: []
+            },
+            fansData: {
+                count: fansCount,
+                list: fansList
+            }
         }
     });
 })
