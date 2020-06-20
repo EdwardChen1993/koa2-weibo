@@ -5,6 +5,7 @@
 const User = require('./User');
 const Blog = require('./Blog');
 const UserRelation = require('./UserRelation');
+const AtRelation = require('./AtRelation');
 
 Blog.belongsTo(User, {
     foreignKey: 'userId'
@@ -23,4 +24,8 @@ Blog.belongsTo(UserRelation, {
     targetKey: 'followerId' // 当外键不是指定从表的id时，需要指定targetKey
 })
 
-module.exports = { User, Blog, UserRelation };
+Blog.hasMany(AtRelation, {
+    foreignKey: 'blogId',
+})
+
+module.exports = { User, Blog, UserRelation, AtRelation };
