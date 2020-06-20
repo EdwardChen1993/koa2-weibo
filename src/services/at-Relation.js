@@ -70,4 +70,29 @@ async function getAtUserBlogList({ userId, pageIndex, pageSize = 10 }) {
     }
 }
 
-module.exports = { createAtRelation, getAtRelationCount, getAtUserBlogList }
+/**
+ * 更新AtRelation
+ * @param {Object} { newIsRead } 更新内容
+ * @param {Object} { userId, isRead } 查询条件
+ */
+async function updateAtRelation({ newIsRead }, { userId, isRead }) {
+    // 拼接更新内容
+    const updateData = {};
+    if (newIsRead) {
+        updateData.isRead = newIsRead;
+    }
+    // 拼接查询条件
+    const whereData = {};
+    if (userId) {
+        whereData.userId = userId;
+    }
+    if (isRead) {
+        whereData.isRead = isRead;
+    }
+    // 执行更新
+    const result = await AtRelation.update(updateData,
+        { where: whereData });
+    return result[0] > 0;
+}
+
+module.exports = { createAtRelation, getAtRelationCount, getAtUserBlogList, updateAtRelation }
